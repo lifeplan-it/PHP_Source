@@ -33,7 +33,7 @@
 <!--more-->
 <h2 id="Explanation_title">解説</h2>
 <dev id="Explanation_contents">
-     <pre>
+<pre>
 	PHPスクリプトの記述方法
 	PHPスクリプトはHTMLに埋め込む事ができる。
 	PHPスクリプトの文字コードは「UTF-8」を使用する。
@@ -46,16 +46,16 @@
 
 	コメントは　// は以降の行をコメントにする
 	コメント	/* 　*/　で囲む
-     </pre>
+</pre>
 </dev>
 <h3 id="Source_title">ソースコード</h3>
 <dev id="Source_code">
-     <pre id="block-code">
-     <code id="code">
+  <pre id="block-code">
+  <code id="code">
        &lt?php print( "Print Hello PHP!!" ) ; ?&gt
        &lt?php echo 'Echo Hello PHP!!' ; ?&gt
-     </code>
-     </pre>
+  </code>
+  </pre>
 </dev>
 
 <h3 id="Execution_title">実行結果</h3>
