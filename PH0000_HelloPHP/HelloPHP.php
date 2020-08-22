@@ -2,6 +2,7 @@
 <!-- File: C:/XAMPP/htdocs/php/PHP_Source/PH0000_HelloPHP/HelloPHP.php -->
 <!-- ブラウザからのアクセス　URL -->
 <!-- URL : http://localhost/php/PHP_Source/PH0000_HelloPHP/HelloPHP.php -->
-
-<?php print ( "Hello PHP" )  ; ?>
-
+  
+<?php
+   print ( "Hello PHP" ) ;
+?>
