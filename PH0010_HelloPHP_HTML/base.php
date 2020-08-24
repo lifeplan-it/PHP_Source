@@ -4,9 +4,14 @@
 <!-- FONT "Arial" -->
 <html lang="ja">
 <head>
-  <META chaeset="UTF-8">
-  <title>PHP Base</title>
+  <!-- 文字コードの指定 -->
+  <META charset="UTF-8">
+  <!-- タイトルを記述    -->
+  <title>index-base.html</title>
+  <!-- スタイルを記述    -->
   <style type="text/css"></style>
+  <!-- スクリプトを記述 -->
+  <script> </script>
 </head>
 
 <body>
