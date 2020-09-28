@@ -1,4 +1,4 @@
-<!-- http://localhost/php/PHP_Source/PH1000_database/Input_Table.php -->
+<!-- http://localhost/php/PHP_Source/PH1010_Database_Base/Select_Table.php -->
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -37,15 +37,18 @@ Mysqlで、テーブルのカラム名を取得するSQL文とPHPのソースコ
 <?php print( "　SQL文:  $sql "); print('<br>');  ?>　
 </dev>
 <?php 
-	try { $dbh = new PDO($dsn, $username, $password,
-		array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8') );
-	       $res = $dbh->query($sql);
-	} catch ( PDOException $e){ print('Error:'.$e->getMessage()); die(); }
+  try { $dbh = new PDO($dsn, $username, $password,
+           array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8') );
+           // SQLを実行              
+          $res = $dbh->query($sql);
 
-	for ($i = 0; $i < $res->columnCount(); $i++) {
-      		$column_index[] = $res->getColumnMeta($i)['name'];
-    	}
-	$dbh = null ;
+  } catch ( PDOException $e){ print('Error:'.$e->getMessage()); die(); }
+         // カラム名の取得
+         for ($i = 0; $i < $res->columnCount(); $i++) {
+             $column_index[] = $res->getColumnMeta($i)['name'];
+}
+// $dbh をクリア
+$dbh = null ;
 ?> 
 
 <!-- テーブル表示 -->
@@ -58,13 +61,13 @@ Mysqlで、テーブルのカラム名を取得するSQL文とPHPのソースコ
    <?php endforeach ?> 
    </tr>
 <!-- データ表示 -->
-   <?php foreach ( $res as $row ) : ?>
+<?php foreach ( $res as $row ) : ?>
    <tr>
-   <?php foreach ( $column_index as $r ) : ?>
-	<td> <?php echo htmlspecialchars( $row[ $r ] ) ; ?></td> 
-    <?php endforeach ?> 
+     <?php foreach ( $column_index as $r ) : ?>
+            <td> <?php echo htmlspecialchars( $row[ $r ] ) ; ?></td> 
+      <?php endforeach ?> 
     </tr>
-  <?php endforeach ?> 
+<?php endforeach ?> 
 </table>
 </dev>
 </main>
