@@ -1,5 +1,23 @@
-<!-- http://localhost/php/PHP_Source/PH1002_ShowTable/Show_Table.php -->
+﻿<!-- http://localhost/php/PHP_Source/PH1023_Select_Table_SelectBox/DB_SelectBox_input.php -->
+<!-- http://lifeandit.com/php/PHP_Source/PH1023_Select_Table_SelectBox/DB_SelectBox_input.php -->
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<MEAT chaeset="UTF-8">
+<title> PHP </title>
+</head>
+<body>
+  <header>
+	<h1>PHPの講座</h1>
+	<style type="text/css">
+	 h2{color:red;}
+	 .sub_comment{ color:blue ; }
+	</style>
+  </header>
+  
+<main>
+<h2> PHP ソース　</h2>
 <?php
   if ($_SERVER['HTTP_HOST'] == 'localhost') {
 	$DataBase =  "lifeandit_eng001" ;
@@ -34,8 +52,20 @@ while ($result = $stmt->fetch(PDO::FETCH_NUM)){
 }
 ?>
 
-<?php foreach ($table_names as $key => $val) : ?>
-  <?php echo '<br>' ?>
-  <?php echo $val; ?>
-<?php endforeach ?> 
+    <dev class="sub_comment">
+    <form action="Select_Table.php" method="get">  
+  	<label for="Table_name">テーブル名：</label>
+	<select size="1" name="Table_name" style="height:35px;width:300px;">
+	<?php foreach ($table_names as $key => $val) : ?>
+	<?php echo "<option value=$val> $val </option> " ?>  	
+	<?php endforeach ?> 
+	</select>
+   <input type="submit" value="送信する">
+   </form>
+   </dev>
+  </main>
 
+  <footer>
+  </footer>
+</body>
+</html>

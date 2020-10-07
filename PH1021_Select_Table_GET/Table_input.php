@@ -1,4 +1,5 @@
-﻿<!-- http://localhost/php/PHP_Source/PH1020_Select_Table_POST/Table_input.php -->
+﻿<!-- http://localhost/php/PHP_Source/PH1021_Select_Table_Get/Table_input.php -->
+<!-- http://lifeandit.com/php/PHP_Source/PH1021_Select_Table_Get/Table_input.php -->
 
 <!DOCTYPE html>
 <html lang="ja">

@@ -1,4 +1,5 @@
-<!-- http://localhost/php/PHP_Source/PH1022_Select_Table_POST/Select_Table.php -->
+<!-- http://localhost/php/PHP_Source/PH1022_Select_Table_List/Select_Table.php -->
+<!-- http://localhost/php/PHP_Source/PH1022_Select_Table_List/Select_Table.php -->
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -22,19 +23,24 @@ Mysqlで、テーブルのカラム名を取得するSQL文とPHPのソースコ
 
 <!-- パラメータセットアップ -->
 <?php
-	// print(htmlspecialchars($_REQUEST['Table_name'], ENT_QUOTES)); 
-	$tablename = htmlspecialchars($_REQUEST['Table_name'], ENT_QUOTES) ;
 	// $tablename = '顧客マスタ' ;
+	$tablename = htmlspecialchars($_REQUEST['Table_name'], ENT_QUOTES) ;
+
  	$sql = "SELECT *  FROM $tablename; " ;
+	
+	if ($_SERVER['HTTP_HOST'] == 'localhost') {
+		$DataBase =  "lifeandit_eng001" ;
+		$username = "root" ; 
+		$password = "" ; 
+		$hostname = "localhost" ;
+	} else {
+		$DataBase = file_get_contents('../../lifeandit_Database_Pram/database.txt'); 
+		$username = file_get_contents('../../lifeandit_Database_Pram/user.txt');
+		$password = file_get_contents('../../lifeandit_Database_Pram/password.txt'); 
+		$hostname = file_get_contents('../../lifeandit_Database_Pram/host.txt'); 
+	}
 
-	$DataBase =  "lifeandit_eng001" ;
-	$username = "lifeandit" ; 
-	$password = "pass1025" ; 
-
-	/* $DataBase =  file_get_contents('lifeandit_eng001_database.txt'); */
-	/* $username = file_get_contents('lifeandit_eng001_user.txt'); */
-	/* $password = file_get_contents('lifeandit_eng001_password.txt'); */ 
-	$dsn = "mysql:dbname=$DataBase;host=localhost";
+	$dsn = "mysql:dbname=$DataBase;host=$hostname";
 ?>
 <?php echo "<h3> $tablename </h3>" ; ?>
 
